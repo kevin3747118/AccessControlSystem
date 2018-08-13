@@ -1,5 +1,5 @@
 {
-  "name": "alzkattendance",
+  "name": "alzkAccessControlSystem",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,5 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kevin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^1.3.0",
+    "koa": "^2.5.2",
+    "koa-router": "^7.4.0",
+    "mysql": "^2.16.0"
+  }
 }
