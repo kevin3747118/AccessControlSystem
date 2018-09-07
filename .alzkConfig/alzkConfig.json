@@ -1,13 +1,23 @@
 {
   "VERSION" : "Fork Ball",
   "HOST_IP" : "127.0.0.1",
-  "REMOTE_HOST_IP" : "192.168.0.250",
-  "ALZK_DB_PORT" : 3306,
-  "ALZK_DB_NAME" : "accessControl",
-  "ALZK_DB_USER" : "alzk",
-  "ALZK_DB_PWD" : "alzk",
+  "LOCAL": {
+    "LOCAL_HOST_IP" : "127.0.0.1",
+    "ALZK_DB_PORT" : 3306,
+    "ALZK_DB_NAME" : "accessControl",
+    "ALZK_DB_USER" : "root",
+    "ALZK_DB_PWD" : "root123",
+    "DBPOOL_MAX" : 5
+  },
+  "REMOTE": {
+    "REMOTE_HOST_IP" : "",
+    "ALZK_DB_PORT" : 3306,
+    "ALZK_DB_NAME" : "alzk",
+    "ALZK_DB_USER" : "alzk",
+    "ALZK_DB_PWD" : "alzk",
+    "DBPOOL_MAX" : 5
+  },
   "PORT_AC" : 8787,
-  
   "EMAIL_SERVICE" : "gmail",
   "EMAIL_USER" : "pamexalzk",
   "EMAIL_PWD" : "pamexalzk000",
@@ -21,7 +31,6 @@
   "HTTP_SESSION_DURATION" : 31536000000,
   "HTTP_SESSION_ACTIVE_DURATION" : 1800000,
   "HTTPS_PASSPHRASE" : "0123456789",
-  "DBPOOL_MAX" : 10,
   "LOCK_DBPOOL_MAX" : 100,
   "AlzkACS_ACCESS_URL" : "https://127.0.0.1:8787/"
 }

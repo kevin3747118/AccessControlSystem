@@ -1,24 +1,40 @@
-const Koa = require('koa');
-const Router = require('koa-router');
-const mysql = require('mysql');
+const express = require('express'); 
+const alzkApp = express(); 
+const bodyParser = require('body-parser');
+// const session = require('client-sessions');
 
-const alzkApp = new Koa();
-const alzkRouter = new Router({
-  prefix: '/alzk'
+const path = require('path');
+
+const moduelRouter = require('./alzk_moduleRouter');
+const alzkApiRouter = require('./alzk_apiRouter');
+
+configDir = './.alzkConfig/';
+const alzkConsts = require(configDir + 'alzkConfig.json');
+
+// try to put db connection in app.use
+
+alzkApp.disable('x-powered-by');
+alzkApp.use(bodyParser.urlencoded({ extended: true }));
+alzkApp.use(bodyParser.json());
+
+
+alzkApp.use(express.static('public'));
+// alzkApp.use(express.static('pages'));
+
+alzkApp.use('/adm', (req, res, next) => {
+  next();
 });
 
+const moduleRouter = require("./alzk_moduleRouter");
+alzkApp.use('/adm', moduleRouter);
 
-alzkRouter.get('/:category/:name',(ctx, next) => {
-  ctx.response.body = '<h2>@_@</h2>';
-  console.log(ctx.params);
-});
+const apiRouter = require("./alzk_apiRouter");
+alzkApp.use('/api', apiRouter);
 
-alzkApp.use(
-  alzkRouter.routes());
-alzkApp.listen(3000);
-console.log('start testing...');
-// configDir = './.alzkConfig';
-// alzkConsts = require(configDir + "/" + "alzkConfig.json");
+
+alzkApp.listen(8787);
+console.log('start server...');
+
 
 // // load config
 // function loadConfig() {
